@@ -47,41 +47,41 @@ public class Main {
             System.out.println("4. Eliminar usuario");
             System.out.println("5. Salir");
             option = scanner.nextInt();
-                switch (option) {
-                    case 1:
-                        crearUsuario();
-                        break;
-                    case 2:
-                        tabla.verTabla();
-                        break;
-                    case 3:
-                        System.out.println("Indique el nombre del usuario a buscar");
-                        scanner.nextLine();
-                        String userToFind = scanner.nextLine();
-                        Usuario usuarioEncontrado = tabla.obtenerUsuario(userToFind);
-                        if (usuarioEncontrado != null) {
-                            System.out.println("Usuario encontrado:");
-                            System.out.println("Nombre de Usuario: " + usuarioEncontrado.getNombre());
-                            System.out.println("Contraseña: " + usuarioEncontrado.getPass());
-                        } else {
-                            System.out.println("Usuario no encontrado");
-                        }
-                        break;
-                    case 4:
-                        System.out.println("Indique el nombre del usuario a eliminar");
-                        scanner.nextLine();
-                        String userToDelete = scanner.nextLine();
-                        tabla.eliminarUsuario(userToDelete);
-                        System.out.println("Usuario elimina correctamente");
-                        break;
-                    case 5:
-                        salir = true;
-                        System.out.println("Hasta luego!!!!");
-                        break;
-                    default:
-                        System.out.println("Opción no válida. Por favor, selecciona una opción valida.");
-                        break;
-                }
+            switch (option) {
+                case 1:
+                    crearUsuario();
+                    break;
+                case 2:
+                    tabla.verTabla();
+                    break;
+                case 3:
+                    System.out.println("Indique el nombre del usuario a buscar");
+                    scanner.nextLine();
+                    String userToFind = scanner.nextLine();
+                    Usuario usuarioEncontrado = tabla.obtenerUsuario(userToFind);
+                    if (usuarioEncontrado != null) {
+                        System.out.println("Usuario encontrado:");
+                        System.out.println("Nombre de Usuario: " + usuarioEncontrado.getNombre());
+                        System.out.println("Contraseña: " + usuarioEncontrado.getPass());
+                    } else {
+                        System.out.println("Usuario no encontrado");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Indique el nombre del usuario a eliminar");
+                    scanner.nextLine();
+                    String userToDelete = scanner.nextLine();
+                    tabla.eliminarUsuario(userToDelete);
+                    System.out.println("Usuario elimina correctamente");
+                    break;
+                case 5:
+                    salir = true;
+                    System.out.println("Hasta luego!!!!");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, selecciona una opción valida.");
+                    break;
+            }
         }
     }
 

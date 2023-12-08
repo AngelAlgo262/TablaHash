@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,7 +17,7 @@ public class Main {
     //función login
     public static void login() {
         boolean iniciar = false;
-        String usuario = "Administrador";
+        String usuario = "Estructuras";
         String pass = "Tarea3";
         while (!iniciar) {
             System.out.println("Usuario:");

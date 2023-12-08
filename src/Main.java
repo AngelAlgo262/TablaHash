@@ -47,11 +47,6 @@ public class Main {
             System.out.println("4. Eliminar usuario");
             System.out.println("5. Salir");
             option = scanner.nextInt();
-            try {
-                // Leer la entrada como string
-                String input = scanner.nextLine();
-                scanner.nextLine(); // Consumir el salto de línea
-                option = Integer.parseInt(input);
                 switch (option) {
                     case 1:
                         crearUsuario();
@@ -85,12 +80,8 @@ public class Main {
                         break;
                     default:
                         System.out.println("Opción no válida. Por favor, selecciona una opción valida.");
-                        scanner.nextLine(); // Limpiar el buffer de entrada
                         break;
                 }
-            }catch (NumberFormatException e) {
-                System.out.println("Entrada no válida. Por favor, ingrese un número.");
-            }
         }
     }
 
@@ -102,18 +93,17 @@ public class Main {
         System.out.println("Ingrese la contraseña:");
         String pass = scanner.nextLine();
         String hashPass = obtenerHash(pass); //cifrar la contraseña
-
         tabla.agregarUsuario(nombreUsuario, hashPass);
     }
 
     //función para cifrar la contraseña
     public static String obtenerHash(String pass) {
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(pass.getBytes(StandardCharsets.UTF_8));
-            return Base64.getEncoder().encodeToString(hash);
+            MessageDigest digest = MessageDigest.getInstance("SHA-256"); //algoritmo de cifrado
+            byte[] hash = digest.digest(pass.getBytes(StandardCharsets.UTF_8)); //caracteres permitidos
+            return Base64.getEncoder().encodeToString(hash); //obtener la cadena cifrada
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //mostrar error en caso de haber
         }
         return null;
     }

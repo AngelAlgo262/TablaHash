@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //función para generar tabla
 public class TablaHash {
-    private static final int TAMANO = 5; //tamaño de la tabla
+    private static final int TAMANO = 200; //tamaño de la tabla
     private static final double cargaMaxima = 0.75; //umbral para el factor de carga
     private static LinkedList<Usuario>[] tabla; //Arreglo para manejar colisiones
     public TablaHash() {
